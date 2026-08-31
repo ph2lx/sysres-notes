@@ -12,10 +12,7 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Déverrouiller un compte AD
 - Création de boîte partagée
 - Accès à un dossier
-- Droits d’accès (GLD / ACL)
-- Rendre un GLD Admin local
-- Admin local — Windows GUI
-- Admin local — Windows Core (distant)
+- Admin local Windows (GLD / GUI / Core / PowerShell)
 
 ## 1.2 Fichiers / Stockage / Robocopy
 - Noms trop longs (Robocopy)
