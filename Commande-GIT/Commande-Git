@@ -5,30 +5,43 @@ pour se connecter a un git dans un dossier
 cd C:\Users\moi\sysres-notes
 git pull
 
-Pour créer un nouveau dossier
-New-Item -ItemType Directory -Path Windows-ActiveDirectory-Exploitation\GPO
-L'activer
-New-Item -ItemType File -Path Windows-ActiveDirectory-Exploitation\GPO\.gitkeep
-git add Windows-ActiveDirectory-Exploitation/GPO
+# Pour créer un nouveau dossier et l'activer dans Git
+New-Item -ItemType Directory -Path Linux
+New-Item -ItemType File -Path Linux\.gitkeep
+
+git add Linux\.gitkeep
 git status
-git commit -m "Ajout des sous-dossiers GPO avec .gitkeep"
+git commit -m "Ajout du sous-dossier Linux avec .gitkeep"
 git push
 
-Pour ajouter un fichier
-se positionner dans le dossier et créer un fichier simple sans extension
+# Pour ajouter un fichier
 New-Item -ItemType File -Path Windows-ActiveDirectory-Exploitation\GPO\truc-machin
 git add Windows-ActiveDirectory-Exploitation\GPO\truc-machin
 git status
-git commit -m "Ajout des sous-dossiers truc-machin avec .gitkeep"
+git commit -m "Ajout de truc-machin"
 git push
 
-Pour mettre a jours tout les fichier d'un coup
-
+# Pour mettre à jour tous les fichiers modifiés d'un coup
 git add -u
 git commit -m "Mise à jour de tout"
 git push
 
+----------------------------------------------
 
+1# creation de dossier Linux & gitkeep
+New-Item -ItemType Directory -Path Linux
+New-Item -ItemType File -Path Linux\.gitkeep
+# creation de fichier Nginx
+New-Item -ItemType File -Path Linux\NginX
+
+2#
+git add Linux\Nginx.md
+git add 
+git add Linux\.gitkeep
+git status
+git commit -m "Ajout du sous-dossier Linux avec .gitkeep + Nginx"
+git push
+-----------------------------------------------------------------
 
 
 
