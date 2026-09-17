@@ -42,7 +42,7 @@ git status
 git commit -m "Ajout du sous-dossier Linux avec .gitkeep + Nginx"
 git push
 -----------------------------------------------------------------
-Suprimer un dosiier
+Suprimer un dossier
 git rm .\Httpd
 git commit -m "suppression du dossier"
 git push
