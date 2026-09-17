@@ -25,6 +25,8 @@ git push
 Pour mettre a jours tout les fichier d'un coup
 
 git add -u
+git commit -m "Mise à jour de tout"
+git push
 
 
 
