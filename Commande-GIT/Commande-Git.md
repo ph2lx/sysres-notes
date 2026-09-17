@@ -159,8 +159,9 @@ git push
 
 ## Ajouter une image
 
-Créer un dossier images
-puis insérer dans le texte à l'endroit voulu
+Créer un dossier images  
+puis insérer dans le texte à l'endroit voulu  
+
 ![CMD-Git](images/exemple1.png)
 
 
