@@ -161,6 +161,6 @@ git push
 
 Créer un dossier images
 puis insérer dans le texte à l'endroit voulu
-![Proxmox](images/proxmox1.png)
+![CMD-Git](images/exemple1.png)
 
 
