@@ -156,3 +156,11 @@ git add .
 git commit -m "Déplacement des fichiers"
 git push
 ```
+
+## Ajouter une image
+
+Créer un dossier images
+puis insérer dans le texte à l'endroit voulu
+![Proxmox](images/proxmox1.png)
+
+
