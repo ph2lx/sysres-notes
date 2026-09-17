@@ -1,6 +1,6 @@
 Vmware to proxmox
 
-Pour la redhat le systeme ne voulais pas booter, le pb était le bios uefi
+Pour la redha le system ne voulais pas booter, le pb était le bios uefi
 
 1.	Snapshot VMware avant migration 
 2.	2. Noter l'ancienne MAC de chaque VM 
@@ -15,6 +15,8 @@ Uploader avec scp le .ovf .mf .vmdk et .nvram
 scp 'D:\VM\ovf\Windows_Server_2022*'  root@192.168.0.30:/var/lib/vz/template/iso/
 qm importovf 200 /mnt/migration/WinSrv2022.ovf local-lvm
 attention appres renommage 
+![Description de l'image](Linux/images/proxmox1.png)
+
  
 Il faut renommer les lignes 5&6 dans l’ovf
 
