@@ -19,7 +19,7 @@ scp 'D:\\VM\\ovf\\Windows_Server_2022\*' root@192.168.0.30:/var/lib/vz/template/
 qm importovf 200 /mnt/migration/WinSrv2022.ovf local-lvm
 
 attention appres renommage
-![image1](Linux/images/proxmox1.png)
+![image1](/images/proxmox1.png)
 
 Il faut renommer les lignes 5&6 dans l'ovf
 
