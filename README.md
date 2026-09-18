@@ -1,4 +1,4 @@
-# sysres-notes
+# sysres-notes (EN CONSTRUCTION...IL ETAIT TEMPS !)
 Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/CD). Aucun élément ne provient d’environnements réels.
 
 # 📑 Table des matières — Portfolio Technique
