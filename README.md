@@ -53,6 +53,7 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - WEB2
 - Localstock.local.fr
 - Installation Office
+- Powershell
 
 ---
 
