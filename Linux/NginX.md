@@ -100,7 +100,7 @@ ls -l /etc/nginx/sites-available
 
 
 
-!\[NginX](images/Nginx1.png)
+!\[NginX](images/Nginx1.png)   
 ```
 
 #### Configuration basique d'un site web statique (port 80)
@@ -127,6 +127,8 @@ server {
 sudo mkdir -p /var/www/site
 sudo vim /var/www/site/index.html
 sudo ln -s /etc/nginx/sites-available/site /etc/nginx/sites-enabled/
+
+!\[NginX](images/Nginx2.png)  
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -145,6 +147,12 @@ sudo certbot renew --dry-run
 ```
 
 > Certbot ajoute automatiquement le bloc HTTPS au fichier de configuration de Nginx.
+
+!\[NginX](images/Nginx3.png)
+
+!\[NginX](images/Nginx4.png)
+
+!\[NginX](images/Nginx5.png)
 
 #### Sécurisation HTTPS (Debian)
 
@@ -396,7 +404,11 @@ http {
 # }
 ```
 
-### `/etc/nginx/sites-available/server`
+### `/etc/nginx/sites-available/server`  
+
+!\[NginX](images/Nginx6.png)
+
+
 
 Le fichier `default` n'est pas utilisé. Pour activer le fichier de server, le lier dans `/etc/nginx/sites-enabled` :
 
