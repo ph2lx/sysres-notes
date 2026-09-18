@@ -168,4 +168,11 @@ puis insérer dans le texte à l'endroit voulu
 
 ![CMD-Git](images/exemple1.png)
 
+## Et pour la centrer  
+
+<p align="center">
+  <img src="images/exemple1.png" alt="CMD-Git" width="400">
+</p>
+
+
 
