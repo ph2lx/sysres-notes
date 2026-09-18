@@ -42,7 +42,6 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 
 ## 1.6 Sécurité / Filtrage
 - Forcepoint
-- IronPort
 - Certificats (Windows)
 - Certificats Java
 - CSR / CSR avec SAN
