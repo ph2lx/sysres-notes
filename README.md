@@ -109,6 +109,13 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Points critiques
 - Reset mot de passe root (RHEL / Debian / Arch)
 
+## 2.9 Projets
+- lvm-à-Chaud.md
+- NginX.md
+- Httpd.md
+- Vmware to Proxmox
+  
+
 ---
 
 # 🌐 3. Réseau / Sécurité / SOC
@@ -169,6 +176,9 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Mails qui disparaissent
 - Lenteur
 - Troubles divers
+
+## Cisco Ironport/ESA  
+
 
 ---
 
