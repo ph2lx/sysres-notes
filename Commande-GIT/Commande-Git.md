@@ -160,6 +160,10 @@ git push
 ## Ajouter une image
 
 Créer un dossier images  
+Ajouter physiquement l'image  
+
+git add Linux/images/proxmox1.png
+
 puis insérer dans le texte à l'endroit voulu  
 
 ![CMD-Git](images/exemple1.png)
