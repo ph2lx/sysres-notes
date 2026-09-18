@@ -1,4 +1,4 @@
-!\[NginX](images/Nginx_logo.png)  
+![NginX](images/Nginx_logo.png)  
 
 # 
 
@@ -98,9 +98,9 @@ sudo systemctl status nginx
 ```bash
 ls -l /etc/nginx/sites-available  
 
+![NginX](images/Nginx1.png) 
 
-
-!\[NginX](images/Nginx1.png)   
+  
 ```
 
 #### Configuration basique d'un site web statique (port 80)
@@ -148,11 +148,11 @@ sudo certbot renew --dry-run
 
 > Certbot ajoute automatiquement le bloc HTTPS au fichier de configuration de Nginx.
 
-!\[NginX](images/Nginx3.png)
+![NginX](images/Nginx3.png)
 
-!\[NginX](images/Nginx4.png)
+![NginX](images/Nginx4.png)
 
-!\[NginX](images/Nginx5.png)
+![NginX](images/Nginx5.png)
 
 #### Sécurisation HTTPS (Debian)
 
@@ -406,7 +406,7 @@ http {
 
 ### `/etc/nginx/sites-available/server`  
 
-!\[NginX](images/Nginx6.png)
+![NginX](images/Nginx6.png)
 
 
 
