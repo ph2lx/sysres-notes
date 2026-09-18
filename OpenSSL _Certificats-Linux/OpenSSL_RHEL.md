@@ -213,6 +213,9 @@ openssl x509 -noout -modulus -in votre_fichier.crt | openssl md5
 3. Aller dans **Personnel → Certificats**
 
 4. Menu **Toutes les tâches → Exporter**
+![Openssl](images/openssl1.png)
+![Openssl](images/openssl2.png)
+![Openssl](images/openssl3.png)
 
 ---
 
