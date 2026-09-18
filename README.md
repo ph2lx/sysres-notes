@@ -179,6 +179,10 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Troubles divers
 
 ## 4.6 Cisco Ironport/ESA  
+- Ironport
+- Mail by Telnet
+- SPF-DKIM-DMARC
+
 
 
 ---
