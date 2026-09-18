@@ -16,10 +16,7 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 
 ## 1.2 Fichiers / Stockage / Robocopy
 - Noms trop longs (Robocopy)
-- Chemins trop longs
-- Accès lecteur M:\
 - Vider les credentials Windows en CMD
-- Restauration de fichier
 
 ## 1.3 GPO
 - Appliquer une GPO
@@ -34,18 +31,12 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 
 ## 1.5 Comptes / Gestion AD
 - Gestion compte
-- Création / modification
+- Création / modification d'un user
 - Attributs spécifiques
-- Créer un user
-- Modifier un user
 - Ajouter dans un groupe ou GLD
 
 ## 1.6 Sécurité / Filtrage
 - Forcepoint
-- Certificats (Windows)
-- Certificats Java
-- CSR / CSR avec SAN
-- Certificat IronPort remplacé
 
 ## 1.7 Divers Windows
 - Installation fonctionnalités facultatives
