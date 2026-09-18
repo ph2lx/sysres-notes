@@ -1,4 +1,4 @@
-!\[NginX](images/Nginx-log.png)
+!\[NginX](images/Nginx_logo.png)  
 
 # 
 
