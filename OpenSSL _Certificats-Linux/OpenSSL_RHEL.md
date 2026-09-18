@@ -247,6 +247,7 @@ openssl pkcs12 -export -out oasis.local.fr.p12 -inkey oasis.local.fr.key -in oas
 ```bash
 keytool -v -list -storetype pkcs12 -keystore oasis.local.fr.p12
 ```
+![Openssl](images/openssl5.png)
 
 ### Déploiement
 
