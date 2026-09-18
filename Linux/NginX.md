@@ -1,4 +1,7 @@
 ![NginX](images/Nginx_logo.png)  
+<p align="center">
+  <img src="images/exemple1.png" alt="CMD-Git" width="400">
+</p>
 
 # 
 
