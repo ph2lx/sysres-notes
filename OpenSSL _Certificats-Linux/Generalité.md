@@ -2,7 +2,7 @@
 
 
 
-•	Pour rechercher un certif non trouvé !  
+•	Pour rechercher un certif non trouvé :
 
 •	sudo find / -type f \\( -iname "\*.pem" -o -iname "\*.crt" -o -iname "\*.cer" -o -iname "\*.key" -o -iname "\*.jks" \\) 2>/dev/null  
 
