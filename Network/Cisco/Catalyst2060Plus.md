@@ -144,7 +144,6 @@ Switch# write memory
 
 
 
-Encore merci chatgpt !
 
 
 
