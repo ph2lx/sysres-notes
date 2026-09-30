@@ -158,7 +158,7 @@ DEALLOCATE PREPARE stmt;
 
 
 
-!\[BDD](../images/synthMaria1.png)
+![BDD](../images/synthMaria1.png)
 
 
 
