@@ -148,3 +148,275 @@ EXECUTE stmt;
 
 DEALLOCATE PREPARE stmt;
 
+
+
+
+
+
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+
+🟦 1. Installation MariaDB (Debian / Ubuntu)
+
+Ajouter le dépôt officiel (recommandé)
+
+bash
+
+sudo apt update
+
+sudo apt install software-properties-common
+
+sudo add-apt-repository 'deb \[arch=amd64] http://mirror.mariadb.org/repo/10.11/ubuntu focal main'
+
+sudo apt update
+
+Installer MariaDB
+
+bash
+
+sudo apt install mariadb-server mariadb-client
+
+Démarrer et activer
+
+bash
+
+sudo systemctl enable mariadb
+
+sudo systemctl start mariadb
+
+🟥 2. Installation MariaDB (RHEL / CentOS / Rocky / Alma)
+
+Ajouter le dépôt MariaDB
+
+bash
+
+sudo tee /etc/yum.repos.d/MariaDB.repo <<EOF
+
+\[mariadb]
+
+name = MariaDB
+
+baseurl = http://yum.mariadb.org/10.11/rhel8-amd64
+
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+
+gpgcheck=1
+
+EOF
+
+Installer
+
+bash
+
+sudo dnf install MariaDB-server MariaDB-client
+
+Démarrer et activer
+
+bash
+
+sudo systemctl enable mariadb
+
+sudo systemctl start mariadb
+
+🟩 3. Sécurisation initiale (OBLIGATOIRE)
+
+MariaDB fournit un script de sécurisation :
+
+
+
+bash
+
+sudo mysql\_secure\_installation
+
+Tu vas répondre :
+
+
+
+Question	Réponse recommandée
+
+Set root password?	YES
+
+Remove anonymous users?	YES
+
+Disallow root login remotely?	YES
+
+Remove test database?	YES
+
+Reload privilege tables?	YES
+
+
+
+
+
+➡ Ça ferme les accès anonymes, supprime la base test, et force un mot de passe root.
+
+
+
+🟦 4. Sécurisation avancée (production)
+
+🔸 1. Désactiver l’accès root via TCP
+
+Éditer /etc/mysql/mariadb.conf.d/50-server.cnf (Debian)
+
+ou /etc/my.cnf.d/server.cnf (RHEL) :
+
+
+
+ini
+
+\[mysqld]
+
+skip-networking
+
+bind-address = 127.0.0.1
+
+➡ Empêche root de se connecter depuis l’extérieur.
+
+
+
+🔸 2. Créer un utilisateur admin dédié
+
+Ne jamais utiliser root en production.
+
+
+
+sql
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'MotDePasseSolide!';
+
+GRANT ALL PRIVILEGES ON \*.\* TO 'admin'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+🔸 3. Limiter les connexions externes
+
+Si tu veux autoriser une IP précise :
+
+
+
+sql
+
+CREATE USER 'app'@'192.168.1.50' IDENTIFIED BY 'mdp';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ma\_base.\* TO 'app'@'192.168.1.50';
+
+FLUSH PRIVILEGES;
+
+➡ Jamais app'@'%' sauf si tu sais ce que tu fais.
+
+
+
+🔸 4. Activer le chiffrement des connexions (SSL)
+
+Vérifier si MariaDB supporte SSL
+
+sql
+
+SHOW VARIABLES LIKE 'have\_ssl';
+
+Générer les certificats
+
+bash
+
+sudo mariadb-tls-create
+
+Activer SSL dans la config
+
+ini
+
+\[mysqld]
+
+ssl-ca=/etc/mysql/certs/ca.pem
+
+ssl-cert=/etc/mysql/certs/server-cert.pem
+
+ssl-key=/etc/mysql/certs/server-key.pem
+
+🔸 5. Durcir les paramètres InnoDB
+
+Dans 50-server.cnf :
+
+
+
+ini
+
+innodb\_buffer\_pool\_size = 1G
+
+innodb\_log\_file\_size = 256M
+
+innodb\_flush\_method = O\_DIRECT
+
+innodb\_flush\_log\_at\_trx\_commit = 1
+
+➡ Paramètres standards pour une prod.
+
+
+
+🔸 6. Activer le slow query log
+
+ini
+
+slow\_query\_log = 1
+
+slow\_query\_log\_file = /var/log/mysql/slow.log
+
+long\_query\_time = 1
+
+Redémarrer :
+
+
+
+bash
+
+sudo systemctl restart mariadb
+
+🟧 5. Vérification de sécurité
+
+Vérifier les utilisateurs
+
+sql
+
+SELECT user, host FROM mysql.user;
+
+Vérifier les bases
+
+sql
+
+SHOW DATABASES;
+
+Vérifier les ports ouverts
+
+bash
+
+sudo ss -tulpen | grep mysql
+
+🟨 6. Bonnes pratiques en production
+
+Ne jamais exposer le port 3306 sur Internet
+
+
+
+Utiliser un reverse proxy ou un VPN pour les connexions externes
+
+
+
+Toujours utiliser un utilisateur par application
+
+
+
+Activer SSL si accès réseau
+
+
+
+Activer le slow query log
+
+
+
+Sauvegardes régulières (mysqldump ou mariabackup)
+
+
+
+Monitoring (Prometheus, Grafana, Zabbix)
+
