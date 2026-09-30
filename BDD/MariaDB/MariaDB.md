@@ -158,6 +158,10 @@ DEALLOCATE PREPARE stmt;
 
 
 
+!\[BDD](../images/synthMaria1.png)
+
+
+
 🟦 1. Installation MariaDB (Debian / Ubuntu)
 
 Ajouter le dépôt officiel (recommandé)
