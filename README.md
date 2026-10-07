@@ -106,7 +106,6 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Httpd.md
 - Vmware to Proxmox
 - Container contrôlé par systemd
-  
 
 ---
 
@@ -173,8 +172,6 @@ Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/
 - Ironport
 - Mail by Telnet
 - SPF-DKIM-DMARC
-
-
 
 ---
 
