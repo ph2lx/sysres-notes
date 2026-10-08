@@ -1,6 +1,6 @@
-############################################################
-🟥 CONTACTS X500 / ERREURS IMCEAEX
-############################################################
+############################################################  
+🟥 CONTACTS X500 / ERREURS IMCEAEX  
+############################################################  
 ## Contact X500  
 Info de contact  
 Get-MailContact -Identity "franck.martin@externe-partenaire.fr" | fl Name,EmailAddresses  
