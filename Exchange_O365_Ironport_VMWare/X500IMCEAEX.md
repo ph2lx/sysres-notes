@@ -13,9 +13,9 @@ Remote Server returned '550 5.1.1 RESOLVER.ADR.ExRecipNotFound; not found'
 
 En-têtes de message d'origine :  
 Received: from SRV16.local.intranet (10.20.1.160) by SRV15.local.intranet (10.20.1.158)  
-with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 21 Mar 2025 16:36:46 +0100  
+with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Mar 2035 16:36:46 +0100  
 Received: from SRV16.local.intranet ([::1]) by SRV16.local.intranet ([fe80::5f9:2f1:b360:198f%16])  
-with mapi id 15.00.1497.044; Fri, 21 Mar 2025 16:36:46 +0100  
+with mapi id 15.00.1497.044; Fri, 24 Mar 2035 16:36:46 +0100  
 Content-Type: application/ms-tnef; name="winmail.dat"  
 Content-Transfer-Encoding: binary  
 From: Simon Pierre <psimon@local.fr>  
@@ -23,7 +23,7 @@ To: Martin Franck <franck.martin@externe-partenaire.fr>
 Subject: test dsi  
 Thread-Topic: test dsi  
 Thread-Index: AduadwuaBEwiUIdXQ8utG1FTXM1aMQ==  
-Date: Fri, 21 Mar 2025 16:36:46 +0100  
+Date: Fri, 24 Mar 2035 16:36:46 +0100  
 Message-ID: <dab29793436a472192e1d16d40627859@SRV16.local.intranet>  
 Accept-Language: fr-FR, en-US  
 Content-Language: fr-FR  
