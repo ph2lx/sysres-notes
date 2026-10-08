@@ -1,239 +1,134 @@
-# sysres-notes (EN CONSTRUCTION...IL ETAIT TEMPS !)
-Portfolio technique et notes génériques (Linux, Windows, réseau, scripts, CI/CD). Aucun élément ne provient d’environnements réels.
+📚 Table des matières — sysres‑notes (sans images)
+🏠 Racine
 
-# 📑 Table des matières — Portfolio Technique
+    README.md
 
----
+🗄️ BDD
 
-# 🪟 1. Windows / Active Directory / Exploitation
+    MariaDB
 
-## 1.1 Comptes & Accès
-- Comptes gMSA
-- Déverrouiller un compte AD
-- Création de boîte partagée
-- Accès à un dossier
-- Admin local Windows (GLD / GUI / Core / PowerShell)
+        MariaDB.md
 
-## 1.2 Fichiers / Stockage / Robocopy
-- Noms trop longs (Robocopy)
-- Vider les credentials Windows en CMD
+    Oracle
 
-## 1.3 GPO
-- Appliquer une GPO
-- Vérifier les GPO
+        Oracle.md
 
-## 1.4 Services / Processus / Système
-- Services
-- Processus
-- Système / Infos
-- Recherche
-- Rechercher log shutdown / reboot
+        Rman.md
 
-## 1.5 Comptes / Gestion AD
-- Gestion compte
-- Création / modification d'un user
-- Attributs spécifiques
-- Ajouter dans un groupe ou GLD
+    Postgres
 
-## 1.6 Sécurité / Filtrage
-- Forcepoint
+        Postgres.md
 
-## 1.7 Divers Windows
-- Installation fonctionnalités facultatives
-- Pour accéder à un serveur quand ça passe pas
-- WEB2
-- Localstock.local.fr
-- Installation Office
-- Powershell
+🧰 Commande‑GIT
 
----
+    Commande-Git.md
 
-# 🐧 2. Linux / RHEL / Debian / Exploitation
+📄 CV
 
-## 2.1 Comptes / Accès / Domaine
-- Jonction AD manuelle
-- Réintégration domaine Linux
-- Ajout de droits AD sur Linux
-- Récupération root / désactivation SSSD / PAM
-- Admin local Linux (adminlocvisudo.sh)
+    PHLEGROS.pdf
 
-## 2.2 Système / Diagnostic
-- Test de port
-- Récupérer de la place (Hardcore)
-- Resize partition
-- Subscription RedHat
-- Maj Red Hat (2 manières)
+🐧 Linux / RHEL / Debian — Exploitation
 
-## 2.3 Systemd
-- Configuration
-- Options
-- Utilisations courantes
+    Container_to_Systemd.md
 
-## 2.4 Podman / Conteneurs
-- Notes Podman
+    cve.md
 
-## 2.5 Swap
-- Création partition swap
-- Fichier swap
+    Httpd.md
 
-## 2.6 Vim
-- Navigation
-- Édition
-- Recherche
-- Buffers / fenêtres
-- Commandes utiles
-- Modes Vim
-- Ressources pour progresser
+    lvm-à-Chaud.md
 
-## 2.7 Programmation / Automatisation
-- Programmer une tâche
+    NginX.md
 
-## 2.8 Administration Linux — La Bible
-- Commandes essentielles
-- Utilisateurs & groupes
-- Permissions, ACL, SELinux
-- Stockage : partitions, LVM, FS
-- Systemd : services, journaux
-- Boot, GRUB & récupération
-- Gestion des paquets (DNF/YUM)
-- Variables d’environnement & scripting
-- Points critiques
-- Reset mot de passe root (RHEL / Debian / Arch)
+    ResetRootRhel.md
 
-## 2.9 Projets
-- lvm-à-Chaud.md
-- NginX.md
-- Httpd.md
-- Vmware to Proxmox
-- Container contrôlé par systemd
+    RHCSA_Guide_Condense.md
 
----
+    Update RHEL.md
 
-# 🌐 3. Réseau / Sécurité / SOC
+    Update Ubuntu.md
 
-## 3.1 Diagnostic réseau
-- Savoir quel service écoute quel port
-- Test de port
-- Outils réseau
+    Vmware-to-proxmox.md
 
-## 3.2 LDAPS / Active Directory
-- Contexte & architecture
-- Ordre de diagnostic
-- Diagnostic côté AD
-- Tableau de diagnostic rapide
-- LDAPS sans SRV = fausse sécurité
-- Plan de remise en ordre (court / long terme)
-- Causes typiques post-migration
+Raspberry Pi
 
-## 3.3 Sécurité / SOC
-- Alerte SOC
-- GDA / Grangle / Grand Angle
-- Accès NEEVA
+    Bonnes Pratiques.md
 
-## 3.4 OpenSSL / Certificats Linux
-- OpenSSL RHEL
-- Baisser la sécurité sur RHEL
+    Raspberry PI 3 Web Server.md
 
----
+    RasPPi5.md
 
-# 📧 4. Messagerie / Exchange / O365 / Ironport
+📧 Messagerie — Exchange / O365 / Ironport
 
-## 4.1 SMTP / SMTPS
-- Dépannage SMTPS
-- Envoi de mail via Telnet
+    Ironport.md
 
-## 4.2 Outlook / BAL
-- Message d’absence
-- Modifier alias
-- Réparer une BAL
-- Récupérer mails supprimés (sans Veeam)
+    Mail_by_telnet.md
 
-## 4.3 Exchange On-Premise / Online
-- Migration Exchange → O365
-- Migration on-premise → Exchange Online
-- Commandes Exchange EMS
-- Vérifier état base EDB
-- Dirty shutdown
-- Exportation compte Exchange (mail, SharePoint, dossier public)
+    SPF-DKIM-DMARC.md
 
-## 4.4 Groupes / Listes
-- Groupe de distribution dynamique
-- Mise à jour liste d’adresses
-- Contact X500
-- Recréation de mail (OWA inaccessible)
+🌐 Network
+Cisco
 
-## 4.5 Tickets / Problèmes
-- Envoi / réception
-- Mails qui disparaissent
-- Lenteur
-- Troubles divers
+    Catalyst2060Plus.md
 
-## 4.6 Cisco Ironport/ESA  
-- Ironport
-- Mail by Telnet
-- SPF-DKIM-DMARC
+    Conf_Basique.md
 
----
+🔐 OpenSSL / Certificats Linux
 
-# 🖥️ 5. Virtualisation / VMware / OPCON / Oracle
+    Baisser_la_sécurité_sur_RHEL.md
 
-## 5.1 VMware vSphere
-- Snapshot
-- Lister VMs zombies
+    Generalité.md
 
-## 5.2 OPCON
-- Installation agent
-- Création d’utilisateur
-- Base de données
-- Dump / clone / scripts
+    OpenSSL_RHEL.md
 
-## 5.3 Oracle
-- Connexion user Oracle
-- Redémarrer
-- Dump
-- Anonymisation
+🛠️ Projets
 
----
+    Serveur x13.md
 
-# ☁️ 6. Azure / Cloud
+🪟 Windows / Active Directory — Exploitation
+Comptes et Accès
 
-## 6.1 Coûts / Billing
-- Cost Management
-- Coûts & consommation
+    Accès à un dossier via un groupe
 
-## 6.2 Ressources critiques
-- Machines virtuelles
-- Réseau
-- Stockage
-- App Services / API
-- Bases de données
+    Compte Gmsa
 
-## 6.3 Monitoring / Sécurité
-- Service Health
-- Entra ID (Azure AD)
-- Identity Protection
-- Azure AD Connect
-- Defender for Cloud
+    Création de boite partagé
 
-## 6.4 Routine quotidienne
-- Routine FR
-- Routine EN (Azure Daily Routine)
+    Déverrouiller un compte AD
 
-## 6.5 Résumé rapide (noms anglais exacts)
+    GLD-admin-local.md
 
----
+Divers Windows
 
-# ⚙️ 7. CI/CD / Automatisation / Git
+    CPL et msc.md
 
-## 7.1 Git
-- Interagir avec Git
+    Powershell.md
 
-## 7.2 Pipelines
-- Pipelines génériques GitLab CI
-- Workflows GitHub Actions
+    Réparations systeme.md
 
-## 7.3 Automatisation
-- Suppression VM via pipeline
+Fichiers / Stockage / Robocopy
 
-## 7.4 Ansible
-- (Section à compléter)
+    NOMs TROP LONG
+
+GPO
+
+    Introduction.md
+
+    Administration
+
+    Astuces
+
+        Appliquer_la_GPO
+
+        Verifier_les_GPO
+
+    Scripts
+
+    Sécurité
+
+Services / Processus / Système
+
+    Rechercher_log_shutdown-reboot.md
+
+Sécurité / Filtrage
+
+    (vide)
