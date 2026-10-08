@@ -69,37 +69,39 @@ Sh vtp password
 8. Installation d’un firmware depuis la ROM et le Réseau
 ---------------------------------------------------------
 
-Ctrl-c Pendant le boot
-rommon1 > tftpdnld
-The following variables are REQUIRED to be set for tftpdnld
-IP_ADDRESS: The IP address for this unit
-IP_SUBNET_MASK: The subnet mask for this unit
-DEFAULT_GATEWAY: The default gateway for this unit
-TFTP_SERVER: The IP address of the server to fetch from
-TFTP_FILE: The filename to fetch
-rommon2 > IP_ADDRESS=192.168.0.254
-rommon3 > IP_SUBNET_MASK=255.255.255.0
-rommon4 > DEFAULT_GATEWAY=192.168.0.1
-rommon5 > TFTP_SERVER=192.168.0.1
-rommon6 > TFTP_FILE c2800nm-advipservicesk9-mz.151-4.M4.bin
-rommon7 > tftpdnld
-Do you wish to continue? y/n: [n]:
-y
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
--=Suppression du firmware=-
-
-
-
-enable
-conf t
-boot system tftp c2800nm-advipservicesk9-mz.151-4.M4.bin 192.168.0.1
-config register 0x210F
-interface FastEthernet0/0
-ip address 192.168.0.254 255.255.255.0
-no shut
-do wr
+Ctrl-c Pendant le boot  
+rommon1 > tftpdnld  
+The following variables are REQUIRED to be set for tftpdnld  
+IP_ADDRESS: The IP address for this unit  
+IP_SUBNET_MASK: The subnet mask for this unit  
+DEFAULT_GATEWAY: The default gateway for this unit  
+TFTP_SERVER: The IP address of the server to fetch from  
+TFTP_FILE: The filename to fetch  
+rommon2 > IP_ADDRESS=192.168.0.254  
+rommon3 > IP_SUBNET_MASK=255.255.255.0  
+rommon4 > DEFAULT_GATEWAY=192.168.0.1  
+rommon5 > TFTP_SERVER=192.168.0.1  
+rommon6 > TFTP_FILE c2800nm-advipservicesk9-mz.151-4.M4.bin  
+rommon7 > tftpdnld  
+Do you wish to continue? y/n: [n]:  
+y  
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+  
+  
+  
+-=Suppression du firmware=-  
+  
+   
+  
+  
+enable  
+conf t  
+boot system tftp c2800nm-advipservicesk9-mz.151-4.M4.bin 192.168.0.1  
+config register 0x210F  
+interface FastEthernet0/0  
+ip address 192.168.0.254 255.255.255.0  
+no shut  
+do wr  
 
 9. Réinitialisation d’un routeur / Reset mot de passe perdu
 ------------------------------------------------------------
