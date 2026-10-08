@@ -139,38 +139,39 @@ R1(config)#do wr
 10. Configurer accès TELNET OU SSH TELNET
 ------------------------------------------
 
-username admin secret bonjour␣␣
-On crée l’utilisateur "admin" avec mdp "bonjour"␣␣
-enable secret bonjour␣␣
-On active le mot de passe pour le système␣␣
-line vty 0 4␣␣
-On rentre dans le menu Telnet␣␣
-login local␣␣
-On demande à Telnet d’utiliser les utilisateurs local, enregistré sur le Switch/Routeur␣␣
-password bonjour␣␣
-On déclare le mot de passe Telnet␣␣
+username admin secret bonjour  
+On crée l’utilisateur "admin" avec mdp "bonjour"  
+enable secret bonjour  
+On active le mot de passe pour le système  
+line vty 0 4  
+On rentre dans le menu Telnet  
+login local  
+On demande à Telnet d’utiliser les utilisateurs local, enregistré sur le Switch/Routeur  
+password bonjour  
+On déclare le mot de passe Telnet  
 
-SSH␣␣
-enable␣␣
-hostname R1␣␣
-Modification du nom du routeur␣␣
-ip domain-name ciscoforever.fr␣␣
-Configuration d’un nom de domaine␣␣
-username admin secret ciscoforever␣␣
-Création d’un compte utilisateur␣␣
-line vty 0 4␣␣
-transport input ssh␣␣
-login local␣␣
-L’authentification se fera par authentification d’un compte local␣␣
-crypto key generate rsa␣␣
-Génération des clés de chiffrement␣␣
-The name for the keys will be: R1.ciscoforever.fr␣␣
-Choose the size of the key modulus in the range of 360 to 2048 for your␣␣
-General Purpose Keys. Choosing a key modulus greater than 512 may take␣␣
-a few minutes.␣␣
-How many bits in the modulus [512]:␣␣
-2048␣␣
-Nombre de bits utilisés pour le chiffrement␣␣
-% Generating 2048 bit RSA keys, keys will be non␣␣
+SSH  
+enable  
+hostname R1  
+Modification du nom du routeur  
+ip domain-name ciscoforever.fr  
+Configuration d’un nom de domaine  
+username admin secret ciscoforever  
+Création d’un compte utilisateur  
+line vty 0 4  
+transport input ssh  
+login local  
+L’authentification se fera par authentification d’un compte local  
+crypto key generate rsa  
+Génération des clés de chiffrement  
+The name for the keys will be: R1.ciscoforever.fr  
+Choose the size of the key modulus in the range of 360 to 2048 for your  
+General Purpose Keys. Choosing a key modulus greater than 512 may take  
+a few minutes.  
+How many bits in the modulus [512]:  
+2048  
+Nombre de bits utilisés pour le chiffrement  
+% Generating 2048 bit RSA keys, keys will be non  
+
 
 11. 
