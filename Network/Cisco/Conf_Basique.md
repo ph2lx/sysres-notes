@@ -60,10 +60,10 @@ do copy run ftp
 7. Petites commande pour montrer les informations
 -----------------------------------------------
 
-Sh run
-Sh vlan
-Sh vtp status
-Sh inter trunk
+Sh run  
+Sh vlan  
+Sh vtp status  
+Sh inter trunk  
 Sh vtp password
 
 8. Installation d’un firmware depuis la ROM et le Réseau
