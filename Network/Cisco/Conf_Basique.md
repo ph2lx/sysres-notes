@@ -417,6 +417,7 @@ ip route 192.168.0.0 255.255.255.0 192.168.1.254
 ip route 192.168.2.0 255.255.255.0 se0/1 192.168.1.1
 ip route 192.168.0.0 255.255.255.0 se0/2 192.168.1.254
 ```
+![Cisc-Conf](../images/RtStatik1.png)  
 
 ## Route par défaut
 
@@ -431,6 +432,7 @@ ip route 0.0.0.0 0.0.0.0 192.168.1.254 10
 ip route 192.168.2.0 255.255.254.0 192.168.1.1
 ip route 192.168.2.0 255.255.254.0 serial 0/1 10
 ```
+![Cisc-Conf](../images/RtStatik2.png)
 
 ## Route flottante
 
