@@ -1,4 +1,4 @@
-📚 Table des matières — sysres‑notes (sans images)
+📚 Table des matières — sysres‑notes
 🏠 Racine
 
     README.md
