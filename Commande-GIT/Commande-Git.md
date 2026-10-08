@@ -166,7 +166,9 @@ git add Linux/images/proxmox1.png
 
 puis insérer dans le texte à l'endroit voulu  
 
-![CMD-Git](images/exemple1.png)
+![CMD-Git](images/exemple1.png)  
+Faire attention a ce que le fichier txt soit bien en .md sinon l'image ne s'affiche pas !  
+
 
 ## Et pour la centrer  
 
