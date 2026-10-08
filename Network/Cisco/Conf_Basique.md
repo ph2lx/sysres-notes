@@ -163,3 +163,5 @@ How many bits in the modulus [512]:
 % Generating 2048 bit RSA keys, keys will be non			
 exportable...[OK]
 ip ssh version 2			Activation de la version 2 du protocole ssh
+
+11. 
