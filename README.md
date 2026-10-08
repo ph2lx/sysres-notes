@@ -1,24 +1,24 @@
-📚 Table des matières — sysres‑notes  
+📚 **Table des matières — sysres‑notes**  
 
-🏠 Racine  
+## 🏠 **Racine**  
   README.md  
 
-🗄️ BDD  
-  MariaDB  
+## 🗄️ **BDD**  
+  ### MariaDB  
     MariaDB.md  
-  Oracle  
+  ### Oracle  
     Oracle.md  
     Rman.md  
-  Postgres  
+  ### Postgres  
     Postgres.md  
 
-🧰 Commande‑GIT  
+## 🧰 **Commande‑GIT**  
   Commande-Git.md  
 
-📄 CV  
+## 📄 **CV**  
   PHLEGROS.pdf  
 
-🐧 Linux / RHEL / Debian — Exploitation  
+## 🐧 **Linux / RHEL / Debian — Exploitation**  
   Container_to_Systemd.md  
   cve.md  
   Httpd.md  
@@ -30,46 +30,46 @@
   Update Ubuntu.md  
   Vmware-to-proxmox.md  
 
-  Raspberry Pi  
+  ### Raspberry Pi  
     Bonnes Pratiques.md  
     Raspberry PI 3 Web Server.md  
     RasPPi5.md  
 
-📧 Messagerie — Exchange / O365 / Ironport  
+## 📧 **Messagerie — Exchange / O365 / Ironport**  
   Ironport.md  
   Mail_by_telnet.md  
   SPF-DKIM-DMARC.md  
 
-🌐 Network  
-  Cisco  
+## 🌐 **Network**  
+  ### Cisco  
     Catalyst2060Plus.md  
     Conf_Basique.md  
 
-🔐 OpenSSL / Certificats Linux  
+## 🔐 **OpenSSL / Certificats Linux**  
   Baisser_la_sécurité_sur_RHEL.md  
   Generalité.md  
   OpenSSL_RHEL.md  
 
-🛠️ Projets  
+## 🛠️ **Projets**  
   Serveur x13.md  
 
-🪟 Windows / Active Directory — Exploitation  
-  Comptes et Accès  
+## 🪟 **Windows / Active Directory — Exploitation**  
+  ### Comptes et Accès  
     Accès à un dossier via un groupe  
     Compte Gmsa  
     Création de boite partagé  
     Déverrouiller un compte AD  
     GLD-admin-local.md  
 
-  Divers Windows  
+  ### Divers Windows  
     CPL et msc.md  
     Powershell.md  
     Réparations systeme.md  
 
-  Fichiers / Stockage / Robocopy  
+  ### Fichiers / Stockage / Robocopy  
     NOMs TROP LONG  
 
-  GPO  
+  ### GPO  
     Introduction.md  
     Administration  
     Astuces  
@@ -78,8 +78,8 @@
     Scripts  
     Sécurité  
 
-  Services / Processus / Système  
+  ### Services / Processus / Système  
     Rechercher_log_shutdown-reboot.md  
 
-  Sécurité / Filtrage  
+  ### Sécurité / Filtrage  
     (vide)  
