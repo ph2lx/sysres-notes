@@ -1,403 +1,355 @@
-1. Mode admin
---------------
+# Sommaire
 
+1. [Mode admin](#1-mode-admin)
+2. [Mode configuration](#2-mode-configuration)
+3. [Changer le nom du routeur](#3-changer-le-nom-du-routeur)
+4. [Attribution d’adresse IP](#4-attribution-dadresse-ip)
+5. [Sécurisation du routeur](#5-sécurisation-du-routeur)
+6. [Sauvegarde](#6-sauvegarde)
+7. [Commandes de diagnostic](#7-commandes-de-diagnostic)
+8. [Installation d’un firmware depuis la ROM et le réseau](#8-installation-dun-firmware-depuis-la-rom-et-le-réseau)
+9. [Réinitialisation / Reset mot de passe perdu](#9-réinitialisation--reset-mot-de-passe-perdu)
+10. [Accès TELNET / SSH](#10-accès-telnet--ssh)
+11. [Update firmware](#11-update-firmware)
+12. [Boot réseau + Bannière + DHCP](#12-boot-réseau--bannière--dhcp)
+13. [Serveur DHCP](#13-serveur-dhcp)
+14. [Relay DHCP](#14-relay-dhcp)
+15. [Routage inter-VLAN (router-on-the-stick)](#15-routage-inter-vlan-router-on-the-stick)
+
+---
+
+# 1. Mode admin
+
+```
 enable
+```
 
-2. Mode configuration
-----------------------
-conf t ou configure terminal
+---
 
-3. Changer le nom du routeur
---------------------------
-Hostname tartempion
+# 2. Mode configuration
 
-4. Attribution d'adresse ip
-----------------------------
+```
+configure terminal
+```
 
-interface fastethernet 0/0 
+---
+
+# 3. Changer le nom du routeur
+
+```
+hostname tartempion
+```
+
+---
+
+# 4. Attribution d’adresse IP
+
+```
+interface fastethernet0/0
 ip address 192.168.0.1 255.255.255.0
 no shutdown
+```
 
-Active l'interface
-Lui attribut une ip masque
-Et l'empêche de s'éteindre être continuellement "up"
+---
 
-5. Sécurisation du routeur
----------------------------
--=Sécurisation du mode utilisateur=-  
+# 5. Sécurisation du routeur
 
+## Mode utilisateur (console)
 
+```
 conf t
 line console 0
 password ciscoforever
 login
+```
 
--=Sécurisation du mode admin=-
+## Mode administrateur
 
+```
 enable secret ciscoforever
+```
 
--=Activation du service chiffrement=-
+## Chiffrement des mots de passe
 
+```
 service password-encryption
+```
 
-6. Sauvegarde
---------------
+---
 
-Sauvegarde RAM vers la NVRAM
+# 6. Sauvegarde
 
-copy running-config startup-config Ou write wr
+## RAM → NVRAM
 
-Sauvegarde RAM vers TFTP
+```
+copy running-config startup-config
+```
 
-copy run tftp
+ou :
 
-Sauvegarde RAM vers FTP
+```
+write memory
+```
 
+## RAM → TFTP
+
+```
+copy running-config tftp
+```
+
+## RAM → FTP
+
+```
 ip ftp username cisco
 ip ftp password cisco
-do copy run ftp
+copy running-config ftp
+```
 
-7. Petites commande pour montrer les informations
------------------------------------------------
+---
 
-Sh run  
-Sh vlan  
-Sh vtp status  
-Sh inter trunk  
-Sh vtp password
+# 7. Commandes de diagnostic
 
-8. Installation d’un firmware depuis la ROM et le Réseau
----------------------------------------------------------
+```
+show running-config
+show vlan
+show vtp status
+show interfaces trunk
+show vtp password
+```
 
-Ctrl-c Pendant le boot  
-rommon1 > tftpdnld  
-The following variables are REQUIRED to be set for tftpdnld  
-IP_ADDRESS: The IP address for this unit  
-IP_SUBNET_MASK: The subnet mask for this unit  
-DEFAULT_GATEWAY: The default gateway for this unit  
-TFTP_SERVER: The IP address of the server to fetch from  
-TFTP_FILE: The filename to fetch  
-rommon2 > IP_ADDRESS=192.168.0.254  
-rommon3 > IP_SUBNET_MASK=255.255.255.0  
-rommon4 > DEFAULT_GATEWAY=192.168.0.1  
-rommon5 > TFTP_SERVER=192.168.0.1  
-rommon6 > TFTP_FILE c2800nm-advipservicesk9-mz.151-4.M4.bin  
-rommon7 > tftpdnld  
-Do you wish to continue? y/n: [n]:  
-y  
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
-  
-  
-  
--=Suppression du firmware=-  
-  
-   
-  
-  
-enable  
-conf t  
-boot system tftp c2800nm-advipservicesk9-mz.151-4.M4.bin 192.168.0.1  
-config register 0x210F  
-interface FastEthernet0/0  
-ip address 192.168.0.254 255.255.255.0  
-no shut  
-do wr  
+---
 
-9. Réinitialisation d’un routeur / Reset mot de passe perdu  
-------------------------------------------------------------  
+# 8. Installation d’un firmware depuis la ROM et le réseau
 
--=Effacement de la config=-  
+## Depuis ROMMON
 
-erase startup-config  
+```
+Ctrl+C pendant le boot
+rommon1 > tftpdnld
+IP_ADDRESS=192.168.0.254
+IP_SUBNET_MASK=255.255.255.0
+DEFAULT_GATEWAY=192.168.0.1
+TFTP_SERVER=192.168.0.1
+TFTP_FILE=c2800nm-advipservicesk9-mz.151-4.M4.bin
+rommon7 > tftpdnld
+```
 
--=Reset du mot de passe=-  
+---
 
-program load complete, entry point: 0x8000f000, size: 0x3ed1338  
-Self decompressing the image :  
-###################  
-Ctrl+C  
-monitor: command "boot" aborted due to user interrupt  
-rommon1 > confreg 0x2142  
-rommon2 > reset  
----  
-System Configuration Dialog  
-Would you like to enter the initial configuration dialog? [yes/no]:  
-Ctrl+C  
+# 9. Réinitialisation / Reset mot de passe perdu
 
-en
+## Effacement de la configuration
+
+```
+erase startup-config
+```
+
+## Reset mot de passe
+
+```
+Ctrl+C
+rommon1 > confreg 0x2142
+rommon2 > reset
+```
+
+## Restauration
+
+```
 copy start run
-Destination filename [running
-config]?
-783 bytes copied in 0.416 secs (1882 bytes/sec)
-R1#conf t
-R1(config)#
+conf t
 enable secret ciscoforever
-R1(config)#config-register 0x2102
-R1(config)#do wr
+config-register 0x2102
+do wr
+```
 
-10. Configurer accès TELNET OU SSH TELNET
-------------------------------------------
+---
 
-username admin secret bonjour  
-On crée l’utilisateur "admin" avec mdp "bonjour"  
-enable secret bonjour  
-On active le mot de passe pour le système  
-line vty 0 4  
-On rentre dans le menu Telnet  
-login local  
-On demande à Telnet d’utiliser les utilisateurs local, enregistré sur le Switch/Routeur  
-password bonjour  
-On déclare le mot de passe Telnet  
+# 10. Accès TELNET / SSH
 
-SSH  
-enable  
-hostname R1  
-Modification du nom du routeur  
-ip domain-name ciscoforever.fr  
-Configuration d’un nom de domaine  
-username admin secret ciscoforever  
-Création d’un compte utilisateur  
-line vty 0 4  
-transport input ssh  
-login local  
-L’authentification se fera par authentification d’un compte local  
-crypto key generate rsa  
-Génération des clés de chiffrement  
-The name for the keys will be: R1.ciscoforever.fr  
-Choose the size of the key modulus in the range of 360 to 2048 for your  
-General Purpose Keys. Choosing a key modulus greater than 512 may take  
-a few minutes.  
-How many bits in the modulus [512]:  
-2048  
-Nombre de bits utilisés pour le chiffrement  
-% Generating 2048 bit RSA keys, keys will be non  
+## TELNET
 
+```
+username admin secret bonjour
+enable secret bonjour
+line vty 0 4
+login local
+password bonjour
+```
 
-11. Update firmware
---------------------
+## SSH
 
-Suppression du firmware  
+```
+enable
+hostname R1
+ip domain-name ciscoforever.fr
+username admin secret ciscoforever
+line vty 0 4
+transport input ssh
+login local
+crypto key generate rsa
+2048
+```
 
-Router>  
-Router>enable  
-R1#dir flash:  
-Directory of flash:/  
-3 -rw- 50938004 <no date> c2800nm-advipservicesk9-mz.124-15.T1.bin  
-64016384 bytes total (12822561 bytes free)  
-R1#delete flash:  
-Delete filename []?c2800nm-advipservicesk9-mz.124-15.T1.bin  
-Delete flash:/c2800nm-advipservicesk9-mz.124-15.T1.bin? [confirm]  
+---
 
-Ajout d’un nouveau firmware  
+# 11. Update firmware
 
-Router>  
-Router>enable  
-R1#copy tftp: flash:  
-Address or name of remote host []? 192.168.0.1  
-Source filename []? c2800nm-advipservicesk9-mz.151-4.M4.bin  
-Destination filename [c2800nm-advipservicesk9-mz.151-4.M4.bin]?  
-Accessing tftp://192.168.0.1/c2800nm-advipservicesk9-mz.151-4.M4.bin....  
-Loading c2800nm-advipservicesk9-mz.151-4.M4.bin from 192.168.0.1: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
-[OK - 33591768 bytes]  
-33591768 bytes copied in 3.513 secs (1003984 bytes/sec)  
-R1#reload  
+## Suppression
 
-12. Démarrer depuis le réseau + bannière + DHCP  
---------------------------------------------------
-Suppression du firmware  
+```
+enable
+dir flash:
+delete flash:/c2800nm-advipservicesk9-mz.124-15.T1.bin
+```
 
-Enable  
-conf t  
-boot system tftp c2800nm-advipservicesk9-mz.151-4.M4.bin 192.168.0.1  
-config register 0x210F  
-interface FastEthernet0/0  
-ip address 192.168.0.254 255.255.255.0  
-no shut  
- do wr  
+## Ajout
 
-Bannière d’accueil  
+```
+copy tftp: flash:
+192.168.0.1
+c2800nm-advipservicesk9-mz.151-4.M4.bin
+reload
+```
 
-banner motd * TITREjgghjgj*  
+---
 
-13. Configuration d’un serveur DHCP sur un routeur  
----------------------------------------------------
-Configuration des IP  
+# 12. Boot réseau + Bannière + DHCP
 
-router>  
-conf t  
-inter fa 0/0  
-ip address 192.168.1.254 255.255.255.0  
-no shut  
-inter fa 0/1  
-ip address 192.168.2.254 255.255.255.0  
-no shut  
-Exit  
+## Boot réseau
 
-Création du Pool 1  
-ip dhcp pool LAN1  
-network 192.168.1.0 255.255.255.0  
-default-router 192.168.1.254  
-dns-server 8.8.8.8  
-option 150 ip 192.168.0.100  
-ip dhcp excluded-address 192.168.1.1 192.168.1.99  
-ip dhcp excluded-address 192.168.1.254  
+```
+boot system tftp c2800nm-advipservicesk9-mz.151-4.M4.bin 192.168.0.1
+config-register 0x210F
+interface FastEthernet0/0
+ip address 192.168.0.254 255.255.255.0
+no shut
+do wr
+```
 
-Exemple  d’une configuration avec option  
-Plage  d’exclusion d’adresse  
+## Bannière
 
-14. Configuration d’un Relay DHCP  
-----------------------------------
-Redirection des  
-Trames DHCP  
+```
+banner motd * TITREjgghjgj *
+```
 
-Enable  
-conf t  
-inter fa 0/0  
-ip address 192.168.1.254 255.255.255.0  
-no shut  
-inter fa 0/1  
-ip address 192.168.2.254 255.255.255.0  
-ip helper-address 192.168.1.1  
-no shut  
-Exit  
+---
 
-conf t  
-ip forward-protocol udp 517  
-no ip forward-protocol udp 37  
-no ip forward-protocol udp 39  
-no ip forward-protocol udp 137  
-no ip forward-protocol udp 138  
+# 13. Serveur DHCP
 
-15. Routage inter-Vlan  "router-on-the stick"  
+## Interfaces
 
-Les switch doivent avoir leurs interfaces configurées en mode Trunk  
+```
+inter fa 0/0
+ip address 192.168.1.254 255.255.255.0
+no shut
 
-un trunk est une liaison ayant pour but de véhiculer le trafic de plusieurs vlans. Vu qu’une trame ethernet standard ne dispose pas d’information relative au vlan duquel elle provient, il est nécessaire d’ajouter ces informations par l’intermédiaire d’un protocole.  
-Dans la cas de dot1q (protocole standard IEEE 802.1q), un tag est inséré entre le champ d’adresse MAC source et le champ Type/Longueur de la trame  
+inter fa 0/1
+ip address 192.168.2.254 255.255.255.0
+no shut
+```
 
-??????????Poser la question pour le code spanning-tree cisco command ????  
+## Pool DHCP
 
-<<<<<SWITCH>>>>>>
-Creation de vlan  
+```
+ip dhcp pool LAN1
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.254
+dns-server 8.8.8.8
+option 150 ip 192.168.0.100
+ip dhcp excluded-address 192.168.1.1 192.168.1.99
+ip dhcp excluded-address 192.168.1.254
+```
 
-en  
-conf t  
-vlan 101  
-name VERT  
-vlan 102  
-name VIOLET  
-vlan 103  
-name BLEU  
+---
 
-Mise en mode Trunk ou access  
-Trunk=fournis les tables pour un autre switch  
-Access=ne fournis pas les tables pour un autre switch  
+# 14. Relay DHCP
 
-interface fa0/1  
-switchport mode trunk  
-interface fa0/2  
-switchport access vlan 101  
-switchport mode access  
+```
+inter fa 0/0
+ip address 192.168.1.254 255.255.255.0
+no shut
 
-interface fa0/3  
-switchport access vlan 102  
-switchport mode access  
-Ou  
-switchport trunk allowed vlan 10,20,30  
-switchport trunk native vlan 30  
+inter fa 0/1
+ip address 192.168.2.254 255.255.255.0
+ip helper-address 192.168.1.1
+no shut
 
-Le vlan natif, est le vlan dans lequel sont véhiculées les trames non taguées dot1q. Donc si un switch reçoit sur une interface trunk une trame ethernet standard, il la placera dans ce vlan natif, en quelque sorte, un vlan par défaut (de marquage).  
+ip forward-protocol udp 517
+no ip forward-protocol udp 37
+no ip forward-protocol udp 39
+no ip forward-protocol udp 137
+no ip forward-protocol udp 138
+```
 
-Et avoir le vtp server en mode client ou server  
-vtp domain ciscoforever  
-vtp password ciscoforever  
-vtp version 2  
-vtp mode client  
-Un vlan de gestion (pas obligatoir)  
+---
 
-vlan 150  
-interface vlan 150  
-ip add 10.10.150.9 255.255.255.0  
-ip default-gateway 10.10.150.254  
-<<<<<SWITCH>>>>>>
-Encapsulation Vlan 802.11Q  
+# 15. Routage inter-VLAN (router-on-the-stick)
 
-en  
-conf t  
-activer l’interface fa 0/0 et la met up  
-interface fa 0/0  
-no shut  
+## VLANs
 
-interface fa 0/0.101  
-encapsulation dot1Q 101  
-ip address 10.10.101.254 255.255.255.0  
-ip helper-address 10.10.200.1  
+```
+vlan 101
+name VERT
+vlan 102
+name VIOLET
+vlan 103
+name BLEU
+```
 
-interface fa 0/0.102  
-encapsulation dot1Q 102  
-ip address 10.10.102.254 255.255.255.0  
-ip helper-address 10.10.200.1  
+## Trunk / Access
 
-Empeche les interface de passer "down", elles sont mise en "up"  
-interface range fastethernet0/0.101,fa0/0.102,fa0/0.103,fa0/0.104,fa0/0.160, fa0/0.200, fa0/0.150  
-no shut  
+```
+interface fa0/1
+switchport mode trunk
 
-On aurait pu mettre aussi :  
+interface fa0/2
+switchport access vlan 101
+switchport mode access
 
-interface fa 0/0.102  
-encapsulation dot1Q 102  
-ip address 10.10.102.254 255.255.255.0  
-ip helper-address 10.10.200.1  
-no shut  
+interface fa0/3
+switchport access vlan 102
+switchport mode access
+```
 
+## VTP
 
-16. Routes Statiques  
----------------------
-Route connectée  
-• Avec l’interface de sortie locale  
-• Se configure sur une liaison Point to Point  
-Ip route 192.168.2.0 255.255.255.0 Serial 0/1  
-Ip route 192.168.0.0 255.255.255.0 Serial 0/2  
+```
+vtp domain ciscoforever
+vtp password ciscoforever
+vtp version 2
+vtp mode client
+```
 
-Route récursive  
-• Avec l’interface l’IP du routeur voisin  
-• Se configure sur une liaison multipoint  
+## VLAN de gestion
 
-Ip route 192.168.2.0 255.255.255.0 192.168.1.1  
-Ip route 192.168.0.0 255.255.255.0 192.168.1.254  
+```
+vlan 150
+interface vlan 150
+ip add 10.10.150.9 255.255.255.0
+ip default-gateway 10.10.150.254
+```
 
-Route entièrement spécifiée  
-• Avec l’interface locale et l’IP du voisin  
-• Se configure sur une liaison Point to Point et multipoint  
+## Sub‑interfaces (dot1Q)
 
-Ip route 192.168.2.0 255.255.255.0 se0/1 192.168.1.1  
-Ip route 192.168.0.0 255.2  
+```
+interface fa 0/0
+no shut
 
-55.255.0 se0/2 192.168.1.254  
+interface fa 0/0.101
+encapsulation dot1Q 101
+ip address 10.10.101.254 255.255.255.0
+ip helper-address 10.10.200.1
 
-Route par défaut  
-• Route de dernier recours  
-• Pour contacter les réseaux inconnus de la table  
+interface fa 0/0.102
+encapsulation dot1Q 102
+ip address 10.10.102.254 255.255.255.0
+ip helper-address 10.10.200.1
+```
 
-Ip route 0.0.0.0 0.0.0.0 serial 0/1  
-Ip route 0.0.0.0 0.0.0.0 192.168.1.254 10  
+## Mise en UP des sous‑interfaces
 
-Route récapitulative  
-• Route servant a alléger la table de routeur  
-• Le masque de cette route en globe d’autres masques  
-
-Ip route 192.168.2.0 255.255.254.0 192.168.1.1  
-Ip route 192.168.2.0 255.255.254.0 serial 0/1 10  
-
-Route flottante  
-• Une route de backup  
-• Modification du poids par défaut  
-
-Ip route 192.168.2.0 255.255.255.0 se0/1 10  
-Ip route 192.168.2.0 255.255.255.0 192.168.1.1 10  
-
-Un autre type de route statique est une route statique flottante. Les routes statiques flottantes sont des routes statiques utilisées pour fournir un chemin de secours à une route statique ou une route dynamique principale, en cas d'échec de lien. La route statique flottante est utilisée uniquement lorsque la route principale n'est pas disponible.  
-Pour cela, la route statique flottante est configurée avec une distance administrative plus élevée que la route principale. Souvenez-vous que la distance administrative indique la fiabilité d'une route. Si plusieurs chemins vers la destination existent, le routeur choisira le chemin présentant la plus courte distance administrative.  
-
-
+```
+interface range fa0/0.101,fa0/0.102,fa0/0.103,fa0/0.104,fa0/0.160,fa0/0.200,fa0/0.150
+no shut
+```
 
