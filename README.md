@@ -5,8 +5,6 @@
   VMTemplate.md  
 
 ## 🗄️ BDD  
-### images  
-  synthMaria1.png  
 ### MariaDB  
   MariaDB.md  
 ### Oracle  
@@ -56,17 +54,6 @@
   Vim.md  
   Vmware-to-proxmox.md  
 
-### images  
-  Nginx1.png  
-  Nginx2.png  
-  Nginx3.png  
-  Nginx4.png  
-  Nginx5.png  
-  Nginx_logo.png  
-  proxmox1.png  
-  rp5.png  
-  sssd.conf.png  
-
 ### RaspberryPi  
   Bonnes Pratiques.md  
   Raspberry PI 3 Web Server.md  
@@ -76,20 +63,11 @@
 ### Cisco  
   Catalyst2060Plus.md  
   Conf_Basique.md  
-### images  
-  RtStatik1.png  
-  RtStatik2.png  
 
 ## 🔐 OpenSSL / Certificats Linux  
   Baisser_la_sécurité_sur_RHEL.md  
   Generalité.md  
   OpenSSL_RHEL.md  
-### images  
-  openssl1.png  
-  openssl2.png  
-  openssl3.png  
-  openssl4.png  
-  openssl5.png  
 
 ## 🛠️ Projets  
   Serveur x13.md  
@@ -104,6 +82,7 @@
   Création de boite partagé  
   Déverrouiller un compte AD  
   GLD-admin-local.md  
+
 #### Diag LDAPS  
   DiagLDAPS-AD.md  
 
