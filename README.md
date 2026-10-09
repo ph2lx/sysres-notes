@@ -33,7 +33,6 @@
   X500IMCEAEX.md  
 
 ## 🐧 Linux / RHEL / Debian — Exploitation  
-  aaa.md  
   AdminLinux.md  
   Container_to_Systemd.md  
   cve.md  
