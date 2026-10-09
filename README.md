@@ -5,6 +5,8 @@
   VMTemplate.md  
 
 ## 🗄️ BDD  
+### images  
+  synthMaria1.png  
 ### MariaDB  
   MariaDB.md  
 ### Oracle  
@@ -54,7 +56,18 @@
   Vim.md  
   Vmware-to-proxmox.md  
 
-### Raspberry Pi  
+### images  
+  Nginx1.png  
+  Nginx2.png  
+  Nginx3.png  
+  Nginx4.png  
+  Nginx5.png  
+  Nginx_logo.png  
+  proxmox1.png  
+  rp5.png  
+  sssd.conf.png  
+
+### RaspberryPi  
   Bonnes Pratiques.md  
   Raspberry PI 3 Web Server.md  
   RasPPi5.md  
@@ -63,11 +76,20 @@
 ### Cisco  
   Catalyst2060Plus.md  
   Conf_Basique.md  
+### images  
+  RtStatik1.png  
+  RtStatik2.png  
 
 ## 🔐 OpenSSL / Certificats Linux  
   Baisser_la_sécurité_sur_RHEL.md  
   Generalité.md  
   OpenSSL_RHEL.md  
+### images  
+  openssl1.png  
+  openssl2.png  
+  openssl3.png  
+  openssl4.png  
+  openssl5.png  
 
 ## 🛠️ Projets  
   Serveur x13.md  
@@ -76,22 +98,21 @@
   Forcepoint.md  
 
 ## 🪟 Windows / Active Directory — Exploitation  
-### Comptes et Accès  
+### Comptes_et_Acces  
   Accès à un dossier via un groupe  
   Compte Gmsa  
   Création de boite partagé  
   Déverrouiller un compte AD  
   GLD-admin-local.md  
-
 #### Diag LDAPS  
   DiagLDAPS-AD.md  
 
-### Divers Windows  
+### Divers-Windows  
   CPL et msc.md  
   Powershell.md  
   Réparations systeme.md  
 
-### Fichiers / Stockage / Robocopy  
+### Fichiers-Stockage-Robocopy  
   NOMs TROP LONG  
 
 ### GPO  
@@ -103,11 +124,11 @@
   Verifier_les_GPO  
 #### Scripts  
   (vide)  
-#### Sécurité  
+#### Securite  
   (vide)  
 
-### Services / Processus / Système  
+### Services_Processus_Système  
   Rechercher_log_shutdown-reboot.md  
 
-### Sécurité / Filtrage  
+### Sécurité-Filtrage  
   (vide)  
