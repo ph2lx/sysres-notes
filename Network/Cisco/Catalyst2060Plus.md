@@ -1,12 +1,12 @@
 Pour reset :  
-Appuyer sur lebouton devant jusqu'apparaisse en terminal  
+Appuyer sur le bouton devant jusqu'a qu'apparaisse en terminal :   
 
 Using driver version 3 for media type 1  
 Base ethernet MAC Address: 40:a6:e8:e2:7a:80  
 Xmodem file system is available.  
 The password-recovery mechanism is enabled.  
 
-Relacher et apparait  
+Relacher le bouton fait apparaître :
 
 The system has been interrupted prior to initializing the  
 flash filesystem.  The following commands will initialize  
@@ -73,4 +73,3 @@ Switch(config)# boot system flash:cat3k_caa-universalk9.SPA.03.03.03.SE.150-1.EZ
 Switch(config)# end  
 Switch# write memory  
 
-Encore merci chatgpt !  
