@@ -36,7 +36,7 @@ Finaliser la migration, à ce moment dans Centre d'administration Exchange on pr
 
 ![ExchMig](images/migr9.png) 
 
-A  
+A  office365
 
 ![ExchMig](images/migr10.png) 
 
